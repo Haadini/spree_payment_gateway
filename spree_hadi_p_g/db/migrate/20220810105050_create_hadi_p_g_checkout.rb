@@ -1,7 +1,7 @@
-class CreateSpreeHadiPG < ActiveRecord::Migration[6.1]
+class CreateSpreeHadiPGCheckout < ActiveRecord::Migration[6.1]
   def change
 
-    create_table :hadi_p_g_s do |t|
+    create_table :hadi_p_g_checkouts do |t|
 
       t.string :request_id
       t.string :payment_total
