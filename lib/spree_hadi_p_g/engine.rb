@@ -1,4 +1,4 @@
-module SpreeHadiPG
+module SpreeHadiGG
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
