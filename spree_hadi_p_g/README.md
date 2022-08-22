@@ -7,7 +7,7 @@ Introduction goes here.
 1. Add this extension to your Gemfile with this line:
 
     ```ruby
-    gem 'spree_hadi_p_g'
+    gem 'spree_hadi_p_g' , github: 'Haadini/spree_payment_gateway'
     ```
 
 2. Install the gem using Bundler
