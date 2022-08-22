@@ -4,7 +4,7 @@ module SpreeHadiPG
     isolate_namespace Spree
     engine_name 'spree_hadi_p_g'
 
-    config_autoload_paths += %W(#{config.root}/lib)
+    config_autoload_paths += %W[#{config.root}/lib]
 
     # use rspec for tests
     config.generators do |g|
@@ -24,4 +24,3 @@ module SpreeHadiPG
     end  
   end
 end
-
