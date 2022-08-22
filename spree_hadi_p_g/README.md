@@ -1,6 +1,6 @@
 # SpreeHadiPG
 
-Introduction goes here.
+A simple payment gateway for spree.
 
 ## Installation
 
