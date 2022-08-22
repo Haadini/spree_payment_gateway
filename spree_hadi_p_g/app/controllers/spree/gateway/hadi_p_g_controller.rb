@@ -17,7 +17,7 @@ module Spree
       request_id = callapi["RequestID"]
         
 
-      Spree::HadiPG.create(request_id: request_id ,payment_total: payment_total, order_id: order_id)
+      Spree::HadiPGCheckout.create(request_id: request_id ,payment_total: payment_total, order_id: order_id)
         
       url_payment_services = {'payment_url'=> invoice_url}.to_json
 
@@ -32,7 +32,7 @@ module Spree
       verifypayment = HTTParty.post(verifypayment_to_post.to_s, :body => {"RequestID":request_id, "Price":payment_total})
 
       if verifypayment["IsSuccess"] == true
-        order_success = Spree::HadiPG.find_by(request_id: request_id)
+        order_success = Spree::HadiPGCheckout.find_by(request_id: request_id)
         order_id = order_success.order_id
         order_success.success_payment = true
         order_success.save
@@ -48,7 +48,7 @@ module Spree
         redirect_to controller: 'HadiPG', action: 'confrim'#, payment_total: payment_total, request_id: request_id
 
       elsif verifypayment["IsSuccess"] == false
-        order_success = Spree::HadiPG.find_by(request_id: request_id)
+        order_success = Spree::HadiPGCheckout.find_by(request_id: request_id)
         order_success.success_payment = false
         order_success.save
 
@@ -59,12 +59,12 @@ module Spree
     end
 
     def confrim
-      #than_you_page
+      #thank_you_page
 
     end
 
     def cancel
-      redirect_to #payment
+      #redirect_to payment
     end
   end
 end
