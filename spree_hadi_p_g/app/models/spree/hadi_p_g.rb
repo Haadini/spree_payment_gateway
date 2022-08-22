@@ -1,5 +1,5 @@
 module Spree
-  class HadiPG < ActiveRecord::Base
+  class HadiPG < Gateway
     belongs_to :order
   end
 end
