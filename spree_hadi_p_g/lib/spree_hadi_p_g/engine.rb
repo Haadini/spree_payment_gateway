@@ -12,7 +12,7 @@ module SpreeHadiPG
     end
     
     initializer 'spree.hadi_p_g.payment_methods', :after => "spree.register.payment_methods" do |app|
-      app.config.spree.payment_methods << Spree::Gateway::HadiPG
+      app.config.spree.payment_methods << Spree::HadiPG
 
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
