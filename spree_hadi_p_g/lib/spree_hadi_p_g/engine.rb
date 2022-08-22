@@ -4,13 +4,11 @@ module SpreeHadiPG
     isolate_namespace Spree
     engine_name 'spree_hadi_p_g'
 
+    config_autoload_paths += %W(#{config.root}/lib)
+
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
-    end
-
-    initializer 'spree_hadi_p_g.environment', before: :load_config_initializers do |_app|
-      SpreeHadiPG::Config = SpreeHadiPG::Configuration.new
     end
 
     def self.activate
@@ -20,5 +18,10 @@ module SpreeHadiPG
     end
 
     config.to_prepare(&method(:activate).to_proc)
+
+    initializer 'spree.hadi_p_g.payment_methods', :after => "spree.register.payment_methods" do |app|
+      app.config.spree.payment_methods << Spree::Gateway::HadiPG
+    end  
   end
 end
+
