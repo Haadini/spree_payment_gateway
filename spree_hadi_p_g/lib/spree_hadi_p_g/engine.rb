@@ -20,7 +20,7 @@ module SpreeHadiPG
     config.to_prepare(&method(:activate).to_proc)
 
     initializer 'spree.hadi_p_g.payment_methods', :after => "spree.register.payment_methods" do |app|
-      app.config.spree.payment_methods << Spree::HadiPG
+      app.config.spree.payment_methods << Spree::Gateway::HadiPG
     end  
   end
 end
